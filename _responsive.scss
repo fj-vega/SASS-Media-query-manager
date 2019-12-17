@@ -1,0 +1,67 @@
+/*
+*  Media query manager
+*/
+// Descomentar el mixin según el diseño de la página
+
+// * Breakpoints
+$movil: 599px;
+$tablet-ver: 600px;
+$tablet-hor: 900px;
+$desktop: 1200px;
+$desktop-lg: 1800px;
+
+// * Desktop first
+// --------------------------------------------------
+// Al usar las queries, escribir siempre el CSS
+// De MAYOR a menor ancho de pantalla para que se
+// sobreescriban las reglas
+
+@mixin responsive($pantalla) {
+  @if $pantalla == desktop-lg {
+    @media (max-width: $desktop-lg) { @content; }
+  }
+
+  @if $pantalla == desktop {
+    @media (max-width: $desktop) { @content; }
+  }
+
+  @if $pantalla == tablet-hor {
+    @media (max-width: $tablet-hor) { @content; }
+  }
+
+  @if $pantalla == tablet-ver {
+    @media (max-width: $tablet-ver) { @content; }
+  }
+
+  @if $pantalla == movil {
+    @media (max-width: $movil) { @content; }
+  }
+} 
+
+// * Mobile first
+// --------------------------------------------------
+// Al usar las queries, escribir siempre el CSS
+// De MENOR a menor ancho de pantalla para que se
+// sobreescriban las reglas
+
+// @mixin responsive($pantalla) {
+//   @if $pantalla == movil {
+//     @media (min-width: $movil) { @content; }
+//   }
+  
+//   @if $pantalla == tablet-ver {
+//     @media (min-width: $tablet-ver) { @content; }
+//   }
+
+//   @if $pantalla == tablet-hor {
+//     @media (min-width: $tablet-ver) { @content; }
+//   }
+
+//   @if $pantalla == desktop {
+//     @media (min-width: $desktop) { @content; }
+//   }
+
+//   @if $pantalla == desktop-lg {
+//     @media (min-width: $desktop-lg) { @content; }
+//   }
+// } 
